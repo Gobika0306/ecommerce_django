@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 20px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update User</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ user.username }}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ user.email }}" required>
+
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio">{{ user.profile.bio }}</textarea>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" value="{{ user.profile.location }}">
+
+        <!-- <label for="birth_date">Birth Date:</label>
+        <input type="date" id="birth_date" name="birth_date" value="{{ user.profile.birth_date }}"> -->
+
+        <label for="user_type">User Type:</label>
+        <select id="user_type" name="user_type">
+            <option value="admin" {% if user.user_type == 'admin' %}selected{% endif %}>Administrator</option>
+            <option value="manager" {% if user.user_type == 'manager' %}selected{% endif %}>Manager</option>
+            <option value="staff" {% if user.user_type == 'staff' %}selected{% endif %}>Staff</option>
+            <option value="customer" {% if user.user_type == 'customer' %}selected{% endif %}>Customer</option>
+        </select>
+
+        <label for="permissions">Permissions:</label>
+        <select id="permissions" name="permissions" multiple>
+            {% for permission in permissions %}
+                <option value="{{ permission.id }}" {% if permission in user.user_permissions.all %}selected{% endif %}>{{ permission.name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Update</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <a href="{% url 'list_users' %}">Back to User List</a>
+</body>
+</html>

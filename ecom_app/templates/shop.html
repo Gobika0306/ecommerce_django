@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Healet</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+  <style>
+    /* Styling for the order form container */
+    .order-form {
+      margin-top: 15px;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+    }
+
+    .order-form-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quantity-label {
+      margin-right: 10px;
+      font-size: 14px;
+    }
+
+    .quantity-input {
+      width: 70px;
+      padding: 5px;
+      margin-right: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .order-button {
+      background-color: #fd9c6b; /* Replace with your theme color */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .order-button:hover {
+      background-color: #fd9c6b; /* Darker shade for hover effect */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- header section starts -->
+  <header class="header_section innerpage_header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <span>
+            Healet
+          </span>
+        </a>
+        <div class="" id="">
+
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'shop' %}">Shop</a>
+                <a href="{% url 'blog' %}">Blog</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- end header section -->
+
+  <!-- shop section -->
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Latest Products
+        </h2>
+      </div>
+      <div class="row">
+        {% for product in products %}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="{% url 'order_product' product.id %}">
+              <div class="img-box">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  {{ product.name }}
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    ₹{{ product.price }}
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+            <!-- Order form inside the box -->
+            <form method="post" action="{% url 'order_product' product.id %}" class="order-form">
+              {% csrf_token %}
+              <div class="order-form-container">
+                <label for="quantity" class="quantity-label">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-input">
+                <button type="submit" class="order-button">Order</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      
+      <div class="btn-box">
+        <a href="">
+          View All Products
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- end shop section -->
+
+  <!-- info section -->
+  <section class="info_section layout_padding2">
+    <!-- Existing info section content -->
+  </section>
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <!-- Existing footer content -->
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQuery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

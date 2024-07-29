@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Orders</title>
+</head>
+<body>
+    <h1>My Orders</h1>
+    <div>
+        {% for order in orders %}
+            <div>
+                <h2>{{ order.product.name }}</h2>
+                <p>Quantity: {{ order.quantity }}</p>
+                <p>Total Price: ${{ order.total_price }}</p>
+                <p>Order Date: {{ order.order_date }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

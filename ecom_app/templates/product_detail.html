@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load custom_filters %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            width: 100%;
+            padding: 15px;
+            text-align: end;
+            position: fixed;
+            top: 0;
+        }
+
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            border-radius: 4px;
+        }
+
+        .header a:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin-top: 80px; /* Adjusted for fixed header */
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        .product-details {
+            margin: 20px 0;
+        }
+
+        .product-details div {
+            margin-bottom: 10px;
+        }
+
+        .edit-btn, .delete-btn {
+            text-decoration: none;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        .edit-btn {
+            background-color: #007BFF;
+        }
+
+        .delete-btn {
+            background-color: #DC3545;
+            border: none;
+            cursor: pointer;
+        }
+
+        .edit-btn:hover, .delete-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="{% url 'product_list' %}">Back to Products</a>
+    </div>
+    <div class="container">
+        <h2>Product Details</h2>
+        <div class="product-details">
+            <div><strong>Name:</strong> {{ product.name }}</div>
+            <div><strong>Description:</strong> {{ product.description }}</div>
+            <div><strong>Price:</strong>₹{{ product.price }}</div>
+            <div><strong>Stock:</strong> {{ product.stock }}</div>
+        </div>
+        <a href="{% url 'edit_product' product.pk %}" class="edit-btn">Edit Product</a>
+        <form method="post" action="{% url 'delete_product' product.pk %}" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="delete-btn">Delete Product</button>
+        </form>
+    </div>
+</body>
+</html>

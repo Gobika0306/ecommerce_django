@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete User</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #e60000;
+            text-align: center;
+        }
+
+        .confirmation-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+        }
+
+        p {
+            margin: 20px 0;
+        }
+
+        button {
+            background: #e60000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background: #cc0000;
+        }
+
+        .cancel-btn {
+            background: #4CAF50;
+        }
+
+        .cancel-btn:hover {
+            background: #45a049;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete User</h1>
+    <div class="confirmation-box">
+        <p>Are you sure you want to delete the user <strong>{{ user.username }}</strong>?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+            <a href="{% url 'list_users' %}" class="cancel-btn">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

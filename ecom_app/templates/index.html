@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Healet</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <!-- header section strats -->
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <span>
+            Healet
+          </span>
+        </a>
+        <div class="" id="">
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'about' %}">About</a>
+                <a href="{% url 'shop' %}">Shop</a>
+                <a href="{% url 'blog' %}">Blog</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- end header section -->
+
+  <!-- slider section -->
+  <section class="slider_section position-relative">
+    <div class="slider_bg_box">
+      <img src="{% static 'images/slider-bg.jpg' %}" alt="">
+    </div>
+    <div class="slider_bg"></div>
+    <div class="container">
+      <div class="col-md-9 col-lg-8">
+        <div class="detail-box">
+          <h1>
+            Best Jewellery
+            <br> Collection
+          </h1>
+          <p>
+            It is a long established fact that a reader will be distracted by the readable content of a page when
+            looking at its layout. The point of using Lorem
+          </p>
+          <div>
+            <a href="{% url 'shop' %}" class="slider-link">
+              Shop Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end slider section -->
+
+  <!-- shop section -->
+  <section class="shop_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Latest Products
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="{% static 'images/p1.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Necklace
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $200
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="{% static 'images/p2.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Necklace
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $300
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="{% static 'images/p3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Necklace
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $110
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="{% static 'images/p4.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Ring
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $45
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="{% static 'images/p5.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Ring
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $95
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="{% static 'images/p6.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Earrings
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $70
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="{% static 'images/p7.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Earrings
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $400
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box">
+            <a href="">
+              <div class="img-box">
+                <img src="{% static 'images/p8.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h6>
+                  Necklace
+                </h6>
+                <h6>
+                  Price
+                  <span>
+                    $450
+                  </span>
+                </h6>
+              </div>
+              <div class="new">
+                <span>
+                  New
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="{% url 'shop' %}">
+          View All Products
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- end shop section -->
+
+  <!-- about section -->
+  <section class="about_section">
+    <div class="container  ">
+
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/about-img.jpg' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+            </div>
+            <p>
+              It is a long established fact that a reader will be distracted by the readable content of a page when
+              looking at its layout. The point of using Lorem
+            </p>
+            <a href="{% url 'about' %}">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end about section -->
+
+  <!-- feature section -->
+  <section class="feature_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Features Of Our Jewellary Shop
+        </h2>
+        <p>
+          It is a long established fact that a reader will be distracted by the readable content of a page when looking
+          at its layout. The point of using Lorem
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/f1.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                <span>01</span>
+                Fast Delivery
+              </h5>
+              <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout. The point of using Lorem
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/f2.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                <span>02</span>
+                Free Shiping
+              </h5>
+              <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout. The point of using Lorem
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="box ">
+            <div class="img-box">
+              <img src="{% static 'images/f3.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                <span>03</span>
+                Best Quality
+              </h5>
+              <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when
+                looking at its layout. The point of using Lorem
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end feature section -->
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Request A call Back
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <form action="">
+            <div class="contact_form-container">
+              <div>
+                <div>
+                  <input type="text" placeholder="Your Name">
+                </div>
+                <div>
+                  <input type="email" placeholder="Your Email">
+                </div>
+                <div>
+                  <input type="text" placeholder="Your Phone">
+                </div>
+                <div>
+                  <input type="text" class="message_input" placeholder="Message">
+                </div>
+                <div class=" d-flex justify-content-center ">
+                  <button type="submit">
+                    Send
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{% static 'images/contact-img.jpg' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="info_logo">
+        <h2>
+          Healet
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h5>
+              About Shop
+            </h5>
+            <div>
+              <div class="img-box">
+                <img src="{% static 'images/location-white.png' %}" width="18px" alt="">
+              </div>
+              <p>
+                Address
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="{% static 'images/telephone-white.png' %}" width="12px" alt="">
+              </div>
+              <p>
+                +01 1234567890
+              </p>
+            </div>
+            <div>
+              <div class="img-box">
+                <img src="{% static 'images/envelope-white.png' %}" width="18px" alt="">
+              </div>
+              <p>
+                demo@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_insta">
+            <h5>
+              INFORMATION
+            </h5>
+            <p class="pr-0 pr-md-4 pr-md-5">
+              It is a long established fact that a reader will be distracted by the readable content of a page when
+              looking at its layout. The point of using Lorem
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_insta">
+            <h5>
+              Helpful Links
+            </h5>
+            <p class="pr-0 pr-md-4 pr-md-5">
+              It is a long established fact that a reader will be distracted by the readable content of a page when
+              looking at its layout. The point of using Lorem
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <img src="{% static 'images/facebook-logo-button.png' %}" alt="">
+              </a>
+              <a href="">
+                <img src="{% static 'images/twitter-logo-button.png' %}" alt="">
+              </a>
+              <a href="">
+                <img src="{% static 'images/linkedin.png' %}" alt="">
+              </a>
+              <a href="">
+                <img src="{% static 'images/instagram.png' %}" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      Copyright &copy; 2023 All Rights Reserved By
+      <a href="https://html.design/">Healet</a>
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+</body>
+
+</html>
